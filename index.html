@@ -13,6 +13,9 @@
         [data-fs-success], [data-fs-error] { display: none; }
         .fs-success-active { display: block; color: #10b981; font-weight: bold; margin-bottom: 1rem; }
         .fs-error-active { display: block; color: #ef4444; font-weight: bold; margin-bottom: 1rem; }
+        /* Spond brand color filter for the logo */
+        .spond-icon { filter: invert(34%) sepia(98%) font-weight(700); width: 28px; height: 28px; transition: opacity 0.2s; }
+        .spond-icon:hover { opacity: 0.7; }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
@@ -20,12 +23,12 @@
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
             <div class="flex items-center">
-                <img src="Logo + name.png" alt="Extra Time Logo" class="h-12">
+                <img src="https://github.com/jonga-llucci/extraTime/blob/4ad7bdf8fd8d8f4cb53b19377933fdc9be3c5ec2/Logo%2Bname.png?raw=true" alt="Extra Time Logo" class="h-12">
             </div>
-            <div class="hidden md:flex space-x-8 font-bold uppercase tracking-wider text-sm">
+            <div class="hidden md:flex items-center space-x-8 font-bold uppercase tracking-wider text-sm">
                 <a href="#about" class="hover:text-blue-700 transition">About</a>
                 <a href="#enquiry" class="hover:text-blue-700 transition">Enquire</a>
-                <a href="https://www.instagram.com/xtcoaching" target="_blank" class="text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/xtcoaching" target="_blank" class="text-xl leading-none"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </nav>
@@ -36,11 +39,12 @@
                 Serious About <span class="text-blue-400">Development</span>
             </h1>
             <p class="text-xl md:text-2xl mb-10 text-gray-300 max-w-2xl mx-auto">
-                Additional training for junior grassroots players. Focused sessions. Targeted outcomes. Take your game to the next level.
+                Additional training for junior grassroots players. Focused sessions. Targeted outcomes.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://spond.com/invite/GVVXG" class="bg-white text-navy px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-gray-200 transition">
-                    Join Our Spond Group
+                <a href="https://spond.com/invite/GVVXG" target="_blank" class="bg-white text-navy px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-gray-200 transition flex items-center justify-center gap-2">
+                    <img src="https://spond.com/static/media/logo-icon.6c8e3150.svg" alt="Spond" class="w-6 h-6">
+                    Join Spond Group
                 </a>
                 <a href="#enquiry" class="border-2 border-white px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-navy transition">
                     Enquire Now
@@ -54,7 +58,7 @@
             <div>
                 <div class="text-4xl mb-4 text-navy"><i class="fas fa-bullseye"></i></div>
                 <h3 class="text-xl font-bold uppercase mb-2">Targeted Outcomes</h3>
-                <p class="text-gray-600">We don't just "play." Every session is designed to sharpen specific technical skills and tactical awareness.</p>
+                <p class="text-gray-600">Every session is designed to sharpen specific technical skills and tactical awareness for serious players.</p>
             </div>
             <div>
                 <div class="text-4xl mb-4 text-navy"><i class="fas fa-user-check"></i></div>
@@ -78,14 +82,14 @@
                 ✓ Message sent! We'll be in touch shortly.
             </div>
             <div id="error-msg" data-fs-error class="bg-red-100 p-4 rounded mb-4 text-red-700 font-bold">
-                Oops! There was a problem. Please check your details and try again.
+                Oops! There was a problem. Please try again.
             </div>
 
             <form id="enquiry-form" class="space-y-4">
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold uppercase mb-1">Parent Name</label>
-                        <input type="text" name="parent_name" required placeholder="John Doe" class="w-full border-2 border-gray-200 p-3 rounded focus:border-navy outline-none" data-fs-field>
+                        <input type="text" name="parent_name" required placeholder="Full Name" class="w-full border-2 border-gray-200 p-3 rounded focus:border-navy outline-none" data-fs-field>
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase mb-1">Email Address</label>
@@ -94,11 +98,11 @@
                 </div>
                 <div>
                     <label class="block text-xs font-bold uppercase mb-1">Player Age & Current Club</label>
-                    <input type="text" name="player_info" required placeholder="U10 - Westside FC" class="w-full border-2 border-gray-200 p-3 rounded focus:border-navy outline-none" data-fs-field>
+                    <input type="text" name="player_info" required placeholder="e.g. U11 - Westside FC" class="w-full border-2 border-gray-200 p-3 rounded focus:border-navy outline-none" data-fs-field>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase mb-1">What are your development goals?</label>
-                    <textarea name="message" rows="4" required placeholder="Tell us what you're looking to improve..." class="w-full border-2 border-gray-200 p-3 rounded focus:border-navy outline-none" data-fs-field></textarea>
+                    <label class="block text-xs font-bold uppercase mb-1">Development Goals</label>
+                    <textarea name="message" rows="4" required placeholder="What are you looking to improve?" class="w-full border-2 border-gray-200 p-3 rounded focus:border-navy outline-none" data-fs-field></textarea>
                 </div>
                 <button type="submit" data-fs-submit-btn class="w-full bg-navy text-white font-black uppercase py-4 rounded hover:bg-black transition tracking-widest disabled:opacity-50">
                     Submit Enquiry
@@ -108,10 +112,12 @@
     </section>
 
     <footer class="py-12 bg-white text-center border-t border-gray-200">
-        <img src="Logo - Navy & black.png" alt="Icon" class="h-10 mx-auto mb-6">
-        <div class="flex justify-center space-x-6 mb-6">
-            <a href="https://www.instagram.com/xtcoaching" class="text-2xl hover:text-blue-600"><i class="fab fa-instagram"></i></a>
-            <a href="https://spond.com/invite/GVVXG" class="text-2xl hover:text-blue-600"><i class="fas fa-calendar-check"></i></a>
+        <img src="https://github.com/jonga-llucci/extraTime/blob/98cc5b6d6898657ee668ff9f51c46c313874e164/Logo.png?raw=true" alt="Extra Time" class="h-12 mx-auto mb-6">
+        <div class="flex justify-center items-center space-x-8 mb-6">
+            <a href="https://www.instagram.com/xtcoaching" target="_blank" class="text-3xl hover:text-blue-900"><i class="fab fa-instagram"></i></a>
+            <a href="https://spond.com/invite/GVVXG" target="_blank" class="hover:opacity-75 transition">
+                <img src="https://spond.com/static/media/logo-icon.6c8e3150.svg" alt="Spond" class="w-8 h-8">
+            </a>
         </div>
         <p class="text-sm text-gray-500 uppercase tracking-widest font-bold">© 2026 Extra Time Coaching</p>
     </footer>
@@ -122,11 +128,8 @@
             formElement: '#enquiry-form', 
             formId: 'xnjwlgdj',
             onSuccess: function() {
-                document.getElementById('enquiry-form').reset();
+                document.getElementById('enquiry-form').style.display = 'none';
                 document.getElementById('success-msg').classList.add('fs-success-active');
-            },
-            onError: function() {
-                document.getElementById('error-msg').classList.add('fs-error-active');
             }
         });
     </script>
