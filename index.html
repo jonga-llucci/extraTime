@@ -82,6 +82,33 @@
             display:none;
         }
 
+        .testimonial-track{
+            display:flex;
+            transition:transform 0.5s ease;
+        }
+
+        .testimonial-slide{
+            min-width:100%;
+        }
+
+        @media(min-width:769px){
+            .testimonial-mobile{
+                display:none;
+            }
+            .testimonial-desktop{
+                display:grid;
+            }
+        }
+
+        @media(max-width:768px){
+            .testimonial-desktop{
+                display:none;
+            }
+            .testimonial-mobile{
+                display:block;
+            }
+        }
+
         .fs-success-active{
             display:block;
         }
@@ -471,6 +498,77 @@
     </div>
 </section>
     
+    
+<!-- TESTIMONIALS -->
+<section class="bg-[#03152d] py-16 px-5 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-10">
+            <p class="uppercase tracking-[0.3em] text-blue-400 text-xs font-black mb-3">
+                PLAYER & PARENT FEEDBACK
+            </p>
+            <h2 class="text-3xl md:text-4xl font-black uppercase italic tracking-tight text-white">
+                What Parents Say
+            </h2>
+        </div>
+
+        <!-- DESKTOP: THREE QUOTES -->
+        <div class="testimonial-desktop grid md:grid-cols-3 gap-5">
+            <div class="bg-white rounded-sm p-7 flex flex-col justify-between min-h-[210px]">
+                <i class="fas fa-quote-left text-blue-600 text-2xl mb-5"></i>
+                <p class="text-gray-700 leading-relaxed font-medium">
+                    “My daughter has got a lot out of the fitness for football pre-season, she was buzzing with her improvements and said she feels fitter”
+                </p>
+            </div>
+
+            <div class="bg-white rounded-sm p-7 flex flex-col justify-between min-h-[210px]">
+                <i class="fas fa-quote-left text-blue-600 text-2xl mb-5"></i>
+                <p class="text-gray-700 leading-relaxed font-medium">
+                    “I really appreciate the time and effort that you commit to the players”
+                </p>
+            </div>
+
+            <div class="bg-white rounded-sm p-7 flex flex-col justify-between min-h-[210px]">
+                <i class="fas fa-quote-left text-blue-600 text-2xl mb-5"></i>
+                <p class="text-gray-700 leading-relaxed font-medium">
+                    “Thank you, my daughter really enjoyed the fitness for football session tonight. She is really pleased with the progress she's made”
+                </p>
+            </div>
+        </div>
+
+        <!-- MOBILE: ROTATING QUOTE -->
+        <div class="testimonial-mobile max-w-xl mx-auto">
+            <div class="overflow-hidden">
+                <div id="testimonial-track" class="testimonial-track">
+                    <div class="testimonial-slide bg-white rounded-sm p-7 min-h-[220px] flex flex-col justify-center">
+                        <i class="fas fa-quote-left text-blue-600 text-2xl mb-5"></i>
+                        <p class="text-gray-700 leading-relaxed font-medium">
+                            “My daughter has got a lot out of the fitness for football pre-season, she was buzzing with her improvements and said she feels fitter”
+                        </p>
+                    </div>
+                    <div class="testimonial-slide bg-white rounded-sm p-7 min-h-[220px] flex flex-col justify-center">
+                        <i class="fas fa-quote-left text-blue-600 text-2xl mb-5"></i>
+                        <p class="text-gray-700 leading-relaxed font-medium">
+                            “I really appreciate the time and effort that you commit to the players”
+                        </p>
+                    </div>
+                    <div class="testimonial-slide bg-white rounded-sm p-7 min-h-[220px] flex flex-col justify-center">
+                        <i class="fas fa-quote-left text-blue-600 text-2xl mb-5"></i>
+                        <p class="text-gray-700 leading-relaxed font-medium">
+                            “Thank you, my daughter really enjoyed the fitness for football session tonight. She is really pleased with the progress she's made”
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-2 mt-5" aria-label="Testimonial navigation">
+                <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white" data-index="0" aria-label="Show testimonial 1"></button>
+                <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white/30" data-index="1" aria-label="Show testimonial 2"></button>
+                <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white/30" data-index="2" aria-label="Show testimonial 3"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ENQUIRY -->
 <section id="enquiry" class="blue-panel py-20 px-5">
 
@@ -692,6 +790,34 @@
             document.getElementById('success-msg').classList.add('fs-success-active');
         }
     });
+</script>
+
+
+<script>
+    (function () {
+        const track = document.getElementById('testimonial-track');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        if (!track || !dots.length) return;
+
+        let current = 0;
+
+        function showTestimonial(index) {
+            current = index;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('bg-white', i === index);
+                dot.classList.toggle('bg-white/30', i !== index);
+            });
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => showTestimonial(Number(dot.dataset.index)));
+        });
+
+        setInterval(() => {
+            showTestimonial((current + 1) % dots.length);
+        }, 5000);
+    })();
 </script>
 
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
