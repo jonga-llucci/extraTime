@@ -93,8 +93,21 @@
         }
 
         .testimonial-slide{
-            min-width:100%;
+            min-width:33.333333%;
             box-sizing:border-box;
+        }
+
+        @media(max-width:768px){
+            .testimonial-slide{
+                min-width:100%;
+            }
+        }
+
+        .testimonial-dot-mobile{display:none;}
+
+        @media(max-width:768px){
+            .testimonial-dot-desktop{display:none;}
+            .testimonial-dot-mobile{display:block;}
         }
 
         .fs-success-active{
@@ -542,10 +555,12 @@
         </div>
 
         <div class="flex justify-center gap-2 mt-5" aria-label="Testimonial navigation">
-            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white" data-index="0" aria-label="Show testimonial 1"></button>
-            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white/30" data-index="1" aria-label="Show testimonial 2"></button>
-            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white/30" data-index="2" aria-label="Show testimonial 3"></button>
-            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white/30" data-index="3" aria-label="Show testimonial 4"></button>
+            <button class="testimonial-dot testimonial-dot-desktop w-2.5 h-2.5 rounded-full bg-white" data-index="0" aria-label="Show testimonials 1 to 3"></button>
+            <button class="testimonial-dot testimonial-dot-desktop w-2.5 h-2.5 rounded-full bg-white/30" data-index="1" aria-label="Show testimonials 2 to 4"></button>
+            <button class="testimonial-dot testimonial-dot-mobile w-2.5 h-2.5 rounded-full bg-white" data-index="0" aria-label="Show testimonial 1"></button>
+            <button class="testimonial-dot testimonial-dot-mobile w-2.5 h-2.5 rounded-full bg-white/30" data-index="1" aria-label="Show testimonial 2"></button>
+            <button class="testimonial-dot testimonial-dot-mobile w-2.5 h-2.5 rounded-full bg-white/30" data-index="2" aria-label="Show testimonial 3"></button>
+            <button class="testimonial-dot testimonial-dot-mobile w-2.5 h-2.5 rounded-full bg-white/30" data-index="3" aria-label="Show testimonial 4"></button>
         </div>
     </div>
 </section>
@@ -777,26 +792,43 @@
 <script>
     (function () {
         const track = document.getElementById('testimonial-track');
-        const dots = document.querySelectorAll('.testimonial-dot');
-        if (!track || !dots.length) return;
+        const allDots = document.querySelectorAll('.testimonial-dot');
+        if (!track || !allDots.length) return;
 
         let current = 0;
 
-        function showTestimonial(index) {
-            current = index;
-            track.style.transform = `translateX(-${index * 100}%)`;
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('bg-white', i === index);
-                dot.classList.toggle('bg-white/30', i !== index);
-            });
+        function isMobile() {
+            return window.matchMedia('(max-width: 768px)').matches;
         }
 
-        dots.forEach(dot => {
+        function getDots() {
+            return document.querySelectorAll(isMobile() ? '.testimonial-dot-mobile' : '.testimonial-dot-desktop');
+        }
+
+        function getMaxIndex() {
+            return isMobile() ? 3 : 1;
+        }
+
+        function showTestimonial(index) {
+            current = Math.min(index, getMaxIndex());
+            const slideWidth = isMobile() ? 100 : 33.333333;
+            track.style.transform = `translateX(-${current * slideWidth}%)`;
+
+            allDots.forEach(dot => dot.classList.remove('bg-white'));
+            allDots.forEach(dot => dot.classList.add('bg-white/30'));
+            getDots()[current].classList.remove('bg-white/30');
+            getDots()[current].classList.add('bg-white');
+        }
+
+        allDots.forEach(dot => {
             dot.addEventListener('click', () => showTestimonial(Number(dot.dataset.index)));
         });
 
+        window.addEventListener('resize', () => showTestimonial(current));
+
         setInterval(() => {
-            showTestimonial((current + 1) % dots.length);
+            const maxIndex = getMaxIndex();
+            showTestimonial(current >= maxIndex ? 0 : current + 1);
         }, 5000);
     })();
 </script>
