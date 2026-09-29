@@ -116,6 +116,31 @@
             display:block;
         }
 
+        .faq-modal-backdrop{
+            background:rgba(3,21,45,0.82);
+            backdrop-filter:blur(6px);
+        }
+
+        .faq-modal-panel{
+            max-height:88vh;
+        }
+
+        .faq-answer{
+            display:none;
+        }
+
+        .faq-item.is-open .faq-answer{
+            display:block;
+        }
+
+        .faq-item.is-open .faq-chevron{
+            transform:rotate(180deg);
+        }
+
+        .instagram-embed-wrap{
+            min-height:520px;
+        }
+
         @media(max-width:768px){
 
             .hero-bg{
@@ -154,9 +179,16 @@
                     About
                 </a>
 
-                <a href="#enquiry" class="hover:text-blue-600 transition">
-                    Enquire
-                </a>
+                <button
+                    id="faq-nav-button"
+                    type="button"
+                    aria-haspopup="dialog"
+                    aria-controls="faq-modal"
+                    aria-expanded="false"
+                    class="hover:text-blue-600 transition"
+                >
+                    FAQs
+                </button>
 
                 <a
                     href="https://www.instagram.com/xtcoaching"
@@ -177,6 +209,234 @@
         </div>
     </div>
 </nav>
+
+<!-- FAQ MODAL -->
+<div
+    id="faq-modal"
+    class="fixed inset-0 z-[100] hidden faq-modal-backdrop p-4 md:p-8"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="faq-modal-title"
+>
+    <div class="min-h-full flex items-center justify-center">
+        <div class="faq-modal-panel w-full max-w-4xl bg-white rounded-sm shadow-2xl overflow-hidden flex flex-col">
+
+            <div class="bg-[#03152d] text-white px-6 py-6 md:px-10 md:py-8 flex items-center justify-between gap-6">
+                <div>
+                    <p class="uppercase tracking-[0.3em] text-blue-400 text-[10px] md:text-xs font-black mb-2">
+                        Frequently Asked Questions
+                    </p>
+                    <h2 id="faq-modal-title" class="text-3xl md:text-4xl font-black uppercase italic tracking-tight">
+                        Need To Know?
+                    </h2>
+                </div>
+
+                <button
+                    id="faq-close-button"
+                    type="button"
+                    aria-label="Close FAQs"
+                    class="w-11 h-11 shrink-0 border border-white/20 hover:bg-white hover:text-[#03152d] transition flex items-center justify-center"
+                >
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="overflow-y-auto divide-y divide-gray-200">
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">Who is this for?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        We are currently offering small group focused development sessions for junior girls aged 12-15.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">My son or older/younger daughter is looking for extra training. Is this something you offer?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        At the moment, we have a development group for U12-U14 girls. If there is enough interest, we could also run additional sessions for boys, mixed groups or different age groups. Please get in touch to register your interest and find out what options may be available. We also offer 1-to-1 training sessions.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">Are you an academy?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        No. These sessions are aimed at grassroots players looking for extra training and development alongside their normal club football.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">Are you qualified?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        Yes. We are a 1 star FA accredited club, which means that all of our players are insured and coaches are qualified and DBS checked.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">How big are the groups?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        Groups are limited to 10 places. This is in-line with NSPCC recommendations for child to adult ratios and helps ensure that every player gets the time and attention that their development requires.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">What happens in a typical session?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        A typical session is focused around what the players attending need. Although we have a core syllabus covering passing, movement, ball control, strength and shielding, 1v1s, striking and defending, the benefit of small group sessions is that we can adapt the session to the players. If there is an area that the group needs more work on, we can spend extra time on it, while players can also bring specific areas they would like to improve and, where appropriate, we can build these into the session.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">Can my child work on a specific area they want to improve?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        Yes. One of the benefits of a small group is that players can raise specific areas of their game that they want to improve. Where appropriate, these can be incorporated into the session alongside the core development syllabus.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">Will my child get plenty of time on the ball?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        Yes. Keeping groups small means players get plenty of opportunities to be involved, repeat technical actions and receive coaching feedback during sessions.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">What level does my child need to be?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        These sessions are intended to provide additional training alongside grassroots football. As such, a level of experience and skill is expected. These are not beginners' sessions.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">Does this replace normal club training?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        No. The sessions are designed as additional training to complement a player's normal grassroots club football.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">How much fitness training is included?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        There will be some fitness work and strength work where it fits naturally into the topic. The main focus of the in-season programme is player development and ball work, with dedicated pre-season sessions used for more focused fitness and conditioning.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">Is goalkeeper training included?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        Sessions are primarily focused on outfield play. The current space does not have a full-size goal and sessions are delivered by one coach, so we cannot provide dedicated goalkeeper training. We can provide details of a known specialist goalkeeper coach if required.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">How much is it?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        £31 per month, September-July. This covers the regular term-time sessions across the season, with the cost averaged over the season, so some months will have more sessions than others.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">What happens if a session is missed or cannot go ahead?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        If a session is missed then there is no credit or refund. £31 per month is a standard cost during the season (September-July) and is designed to cover facilities over that period. If a child cannot attend a session, or a session cannot be held due to unforeseen circumstances, no refunds shall be given. If a session cannot go ahead, we will do our best to find a suitable alternative where possible.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">Do you do holiday camps or additional sessions?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        Sometimes. Additional sessions for small groups, 1-to-1 training and pre-season fitness can be run during school holidays if there is enough demand. These sessions will be charged separately for those who wish to attend.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">Where and when is it?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        Our current girls development centre is every Tuesday, 6-7pm, at Beckfoot School in Bingley.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">What do I need to bring?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        The sessions are held on 3G artificial turf, so AG boots are recommended, along with appropriate clothing for the weather and a drink.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">How do I sign up?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        Join the Spond group using the <a href="https://spond.com/invite/GVVXG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-black hover:underline">Spond invite link</a>. Session updates and information are shared through the app.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">How do I pay?</span>
+                        <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
+                        Monthly direct debit. Payment details are available in the Spond group.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- HERO -->
 <header class="hero-bg min-h-[760px] flex items-center relative overflow-hidden">
@@ -671,6 +931,55 @@
     </div>
 </section>
     
+<!-- INSTAGRAM -->
+<section id="instagram" class="bg-gray-100 py-24 px-5 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto">
+
+        <div class="text-center mb-12">
+            <p class="uppercase tracking-[0.3em] text-blue-600 text-xs font-black mb-4">
+                FOLLOW THE JOURNEY
+            </p>
+            <h2 class="text-4xl md:text-5xl font-black uppercase italic tracking-tight text-[#03152d] mb-5">
+                Latest From Instagram
+            </h2>
+            <p class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
+                Training sessions, player development and updates from Extra Time Coaching.
+            </p>
+        </div>
+
+        <div class="instagram-embed-wrap max-w-3xl mx-auto bg-white rounded-sm shadow-xl p-3 md:p-5 overflow-hidden flex justify-center">
+            <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/xtcoaching/"
+                data-instgrm-version="14"
+                style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"
+            >
+                <div class="p-10 text-center">
+                    <i class="fab fa-instagram text-4xl text-blue-600 mb-5"></i>
+                    <p class="font-black uppercase tracking-[0.18em] text-sm text-[#03152d] mb-3">
+                        Follow @xtcoaching
+                    </p>
+                    <p class="text-gray-500 text-sm mb-5">
+                        View the latest Extra Time Coaching updates on Instagram.
+                    </p>
+                    <a
+                        href="https://www.instagram.com/xtcoaching"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 uppercase text-[10px] tracking-[0.2em] font-black transition"
+                    >
+                        Open Instagram
+                    </a>
+                </div>
+            </blockquote>
+        </div>
+
+    </div>
+</section>
+
+<!-- INSTAGRAM EMBED SCRIPT -->
+<script async src="https://www.instagram.com/embed.js"></script>
+
 <!-- LOCATION -->
 <section class="bg-gray-50 py-20 px-5 border-t border-gray-200">
 
@@ -773,6 +1082,72 @@
 
     </div>
 </footer>
+
+<!-- FAQ INTERACTION -->
+<script>
+    (function () {
+        const modal = document.getElementById('faq-modal');
+        const openButton = document.getElementById('faq-nav-button');
+        const closeButton = document.getElementById('faq-close-button');
+        const questions = document.querySelectorAll('.faq-question');
+
+        if (!modal || !openButton || !closeButton) return;
+
+        let lastFocusedElement = null;
+
+        function openFaqs() {
+            lastFocusedElement = document.activeElement;
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            openButton.setAttribute('aria-expanded', 'true');
+            closeButton.focus();
+        }
+
+        function closeFaqs() {
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            openButton.setAttribute('aria-expanded', 'false');
+            if (lastFocusedElement) lastFocusedElement.focus();
+        }
+
+        openButton.addEventListener('click', function () {
+            if (modal.classList.contains('hidden')) {
+                openFaqs();
+            } else {
+                closeFaqs();
+            }
+        });
+
+        closeButton.addEventListener('click', closeFaqs);
+
+        modal.addEventListener('click', function (event) {
+            if (event.target === modal) closeFaqs();
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeFaqs();
+            }
+        });
+
+        questions.forEach(function (question) {
+            question.addEventListener('click', function () {
+                const item = question.closest('.faq-item');
+                const isOpen = item.classList.contains('is-open');
+
+                document.querySelectorAll('.faq-item.is-open').forEach(function (openItem) {
+                    openItem.classList.remove('is-open');
+                    openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    })();
+</script>
 
 <!-- FORMSPREE -->
 <script>
