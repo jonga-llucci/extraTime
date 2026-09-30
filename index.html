@@ -141,6 +141,10 @@
             min-height:520px;
         }
 
+        .instagram-modal-panel{
+            max-height:90vh;
+        }
+
         @media(max-width:768px){
 
             .hero-bg{
@@ -190,13 +194,17 @@
                     FAQs
                 </button>
 
-                <a
-                    href="https://www.instagram.com/xtcoaching"
-                    target="_blank"
+                <button
+                    id="instagram-nav-button"
+                    type="button"
+                    aria-haspopup="dialog"
+                    aria-controls="instagram-modal"
+                    aria-expanded="false"
+                    aria-label="Open Instagram"
                     class="text-lg hover:text-blue-600 transition"
                 >
                     <i class="fab fa-instagram"></i>
-                </a>
+                </button>
 
                 <a
                     href="#enquiry"
@@ -249,7 +257,7 @@
                         <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
-                        We are currently offering small group focused development sessions for junior girls aged 12-15.
+                        We are currently offering small group focused development sessions for U12-U15 girls.
                     </div>
                 </div>
 
@@ -259,7 +267,7 @@
                         <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
-                        At the moment, we have a development group for U12-U14 girls. If there is enough interest, we could also run additional sessions for boys, mixed groups or different age groups. Please get in touch to register your interest and find out what options may be available. We also offer 1-to-1 training sessions.
+                        At the moment, we have a development group for U12-U15 girls. If there is enough interest, we could also run additional sessions for boys, mixed groups or different age groups. Please <a href="#enquiry" class="text-blue-600 font-black hover:underline">get in touch</a> to register your interest and find out what options may be available. We also offer <a href="#enquiry" class="text-blue-600 font-black hover:underline">1-to-1 training sessions</a>.
                     </div>
                 </div>
 
@@ -359,17 +367,17 @@
                         <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
-                        Sessions are primarily focused on outfield play. The current space does not have a full-size goal and sessions are delivered by one coach, so we cannot provide dedicated goalkeeper training. We can provide details of a known specialist goalkeeper coach if required.
+                        Sessions are primarily focused on outfield play. The current space does not have a full-size goal and sessions are delivered by one coach, so we cannot provide dedicated goalkeeper training. We can provide details of a known specialist goalkeeper coach if required. <a href="#enquiry" class="text-blue-600 font-black hover:underline">Get in touch</a> if you would like more information.
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question w-full text-left px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6" type="button" aria-expanded="false">
-                        <span class="font-black text-lg md:text-xl text-[#03152d]">How much is it?</span>
+                        <span class="font-black text-lg md:text-xl text-[#03152d]">How much does it cost?</span>
                         <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
-                        £31 per month, September-July. This covers the regular term-time sessions across the season, with the cost averaged over the season, so some months will have more sessions than others.
+                        Session costs vary depending on the group, facility hire, location and day, so pricing may differ between programmes. The cost for each current session is confirmed when you enquire or through the relevant Spond group.
                     </div>
                 </div>
 
@@ -379,7 +387,7 @@
                         <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
-                        If a session is missed then there is no credit or refund. £31 per month is a standard cost during the season (September-July) and is designed to cover facilities over that period. If a child cannot attend a session, or a session cannot be held due to unforeseen circumstances, no refunds shall be given. If a session cannot go ahead, we will do our best to find a suitable alternative where possible.
+                        If a session is missed then there is no credit or refund. Session fees are based on the cost of running that particular programme and are designed to cover facilities over the relevant period. If a child cannot attend a session, or a session cannot be held due to unforeseen circumstances, no refunds shall be given. If a session cannot go ahead, we will do our best to find a suitable alternative where possible.
                     </div>
                 </div>
 
@@ -389,7 +397,7 @@
                         <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
-                        Sometimes. Additional sessions for small groups, 1-to-1 training and pre-season fitness can be run during school holidays if there is enough demand. These sessions will be charged separately for those who wish to attend.
+                        Sometimes. Additional sessions for small groups, 1-to-1 training and pre-season fitness can be run during school holidays if there is enough demand. These sessions will be charged separately for those who wish to attend. <a href="#enquiry" class="text-blue-600 font-black hover:underline">Enquire about upcoming sessions</a>.
                     </div>
                 </div>
 
@@ -429,14 +437,114 @@
                         <i class="fas fa-chevron-down faq-chevron text-blue-600 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-6 pb-6 md:px-10 md:pb-7 text-gray-600 leading-relaxed">
-                        Monthly direct debit. Payment details are available in the Spond group.
+                        Payment arrangements vary by programme. For the current development centre, monthly direct debit details are available in the <a href="https://spond.com/invite/GVVXG" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-black hover:underline">Spond group</a>.
                     </div>
                 </div>
+                <div class="faq-item border-b border-gray-200">
+                    <button class="faq-question w-full flex justify-between items-center text-left py-5 font-black uppercase tracking-wide">
+                        <span>Are you insured?</span>
+                        <i class="fas fa-plus text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden pb-5 text-gray-600 leading-relaxed">
+                        Yes, we are covered under the West Riding FA Public Liability Scheme and Personal Accident Scheme. Both schemes are provided by Sportsguard
+                        (<a href="https://www.sportsguard.co.uk" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">sportsguard.co.uk</a>)
+                        and meet the mandatory requirements as prescribed by the Football Association.
+                    </div>
+                </div>
+
+                <div class="faq-item border-b border-gray-200">
+                    <button class="faq-question w-full flex justify-between items-center text-left py-5 font-black uppercase tracking-wide">
+                        <span>Are you DBS checked?</span>
+                        <i class="fas fa-plus text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden pb-5 text-gray-600 leading-relaxed">
+                        Yes, as an affiliate club all coaches must be qualified and have a clear and up to date DBS check. We also have a club welfare officer and player safeguarding policy.
+                    </div>
+                </div>
+
+                <div class="faq-item border-b border-gray-200">
+                    <button class="faq-question w-full flex justify-between items-center text-left py-5 font-black uppercase tracking-wide">
+                        <span>Do you offer free trials?</span>
+                        <i class="fas fa-plus text-blue-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden pb-5 text-gray-600 leading-relaxed">
+                        Not as a rule, due to the nature of the small groups players are invited based on active membership and there may not be places available within our ratios. However, please
+                        <a href="#enquiry" class="text-blue-600 hover:underline">get in touch to enquire</a>.
+                        If it is possible we will do our best to accommodate.
+                    </div>
+                </div>
+
 
             </div>
         </div>
     </div>
 </div>
+
+<!-- INSTAGRAM MODAL -->
+<div
+    id="instagram-modal"
+    class="fixed inset-0 z-[100] hidden faq-modal-backdrop p-4 md:p-8"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="instagram-modal-title"
+>
+    <div class="min-h-full flex items-center justify-center">
+        <div class="instagram-modal-panel w-full max-w-4xl bg-white rounded-sm shadow-2xl overflow-hidden flex flex-col">
+
+            <div class="bg-[#03152d] text-white px-6 py-5 md:px-10 md:py-6 flex items-center justify-between gap-6">
+                <div>
+                    <p class="uppercase tracking-[0.3em] text-blue-400 text-[10px] md:text-xs font-black mb-2">
+                        Follow The Journey
+                    </p>
+                    <h2 id="instagram-modal-title" class="text-2xl md:text-3xl font-black uppercase italic tracking-tight">
+                        @xtcoaching
+                    </h2>
+                </div>
+
+                <button
+                    id="instagram-close-button"
+                    type="button"
+                    aria-label="Close Instagram"
+                    class="w-11 h-11 shrink-0 border border-white/20 hover:bg-white hover:text-[#03152d] transition flex items-center justify-center"
+                >
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="overflow-y-auto p-4 md:p-8 bg-gray-50">
+                <div class="instagram-embed-wrap max-w-2xl mx-auto bg-white rounded-sm shadow-sm p-2 md:p-4 overflow-hidden flex justify-center">
+                    <blockquote
+                        class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/xtcoaching/"
+                        data-instgrm-version="14"
+                        style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"
+                    >
+                        <div class="p-10 text-center">
+                            <i class="fab fa-instagram text-4xl text-blue-600 mb-5"></i>
+                            <p class="font-black uppercase tracking-[0.18em] text-sm text-[#03152d] mb-3">
+                                Follow @xtcoaching
+                            </p>
+                            <p class="text-gray-500 text-sm mb-5">
+                                View the latest Extra Time Coaching updates on Instagram.
+                            </p>
+                            <a
+                                href="https://www.instagram.com/xtcoaching"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 uppercase text-[10px] tracking-[0.2em] font-black transition"
+                            >
+                                Open Instagram
+                            </a>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- INSTAGRAM EMBED SCRIPT -->
+<script async src="https://www.instagram.com/embed.js"></script>
 
 <!-- HERO -->
 <header class="hero-bg min-h-[760px] flex items-center relative overflow-hidden">
@@ -931,55 +1039,6 @@
     </div>
 </section>
     
-<!-- INSTAGRAM -->
-<section id="instagram" class="bg-gray-100 py-24 px-5 border-t border-gray-200">
-    <div class="max-w-7xl mx-auto">
-
-        <div class="text-center mb-12">
-            <p class="uppercase tracking-[0.3em] text-blue-600 text-xs font-black mb-4">
-                FOLLOW THE JOURNEY
-            </p>
-            <h2 class="text-4xl md:text-5xl font-black uppercase italic tracking-tight text-[#03152d] mb-5">
-                Latest From Instagram
-            </h2>
-            <p class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-                Training sessions, player development and updates from Extra Time Coaching.
-            </p>
-        </div>
-
-        <div class="instagram-embed-wrap max-w-3xl mx-auto bg-white rounded-sm shadow-xl p-3 md:p-5 overflow-hidden flex justify-center">
-            <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/xtcoaching/"
-                data-instgrm-version="14"
-                style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"
-            >
-                <div class="p-10 text-center">
-                    <i class="fab fa-instagram text-4xl text-blue-600 mb-5"></i>
-                    <p class="font-black uppercase tracking-[0.18em] text-sm text-[#03152d] mb-3">
-                        Follow @xtcoaching
-                    </p>
-                    <p class="text-gray-500 text-sm mb-5">
-                        View the latest Extra Time Coaching updates on Instagram.
-                    </p>
-                    <a
-                        href="https://www.instagram.com/xtcoaching"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 uppercase text-[10px] tracking-[0.2em] font-black transition"
-                    >
-                        Open Instagram
-                    </a>
-                </div>
-            </blockquote>
-        </div>
-
-    </div>
-</section>
-
-<!-- INSTAGRAM EMBED SCRIPT -->
-<script async src="https://www.instagram.com/embed.js"></script>
-
 <!-- LOCATION -->
 <section class="bg-gray-50 py-20 px-5 border-t border-gray-200">
 
@@ -993,10 +1052,32 @@
             Based In Bingley
         </h2>
 
-        <p class="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto mb-8">
+        <p class="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto mb-10">
             Sessions are primarily delivered at Beckfoot School, Wagon Ln, Bingley, Bradford BD16 1EE.
             Conveniently located for players across Keighley, Bingley and Bradford.
         </p>
+
+        <div class="max-w-2xl mx-auto mb-10 bg-white border border-gray-200 shadow-sm text-left p-7 md:p-9">
+            <p class="uppercase tracking-[0.25em] text-blue-600 text-[10px] font-black mb-3">
+                Currently Available
+            </p>
+            <h3 class="text-2xl md:text-3xl font-black uppercase italic tracking-tight text-[#03152d] mb-4">
+                U12–U15 Girls Development Centre
+            </h3>
+            <div class="grid sm:grid-cols-2 gap-4 text-sm font-bold text-gray-600 mb-6">
+                <div><i class="far fa-calendar text-blue-600 mr-2"></i> Tuesdays</div>
+                <div><i class="far fa-clock text-blue-600 mr-2"></i> 6:00-7:00pm</div>
+                <div class="sm:col-span-2"><i class="fas fa-location-dot text-blue-600 mr-2"></i> Beckfoot School, Bingley</div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="https://spond.com/invite/GVVXG" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 uppercase text-[10px] tracking-[0.2em] font-black transition">
+                    Join Spond
+                </a>
+                <a href="#enquiry" class="inline-flex items-center justify-center border border-[#03152d] hover:bg-[#03152d] hover:text-white text-[#03152d] px-6 py-4 uppercase text-[10px] tracking-[0.2em] font-black transition">
+                    Enquire
+                </a>
+            </div>
+        </div>
 
         <div class="flex flex-wrap justify-center gap-3 text-xs uppercase tracking-[0.18em] font-black">
             <span class="bg-white border border-gray-300 px-4 py-3">Bradford</span>
@@ -1082,6 +1163,51 @@
 
     </div>
 </footer>
+
+<!-- INSTAGRAM INTERACTION -->
+<script>
+    (function () {
+        const modal = document.getElementById('instagram-modal');
+        const openButton = document.getElementById('instagram-nav-button');
+        const closeButton = document.getElementById('instagram-close-button');
+
+        if (!modal || !openButton || !closeButton) return;
+
+        let lastFocusedElement = null;
+
+        function openInstagram() {
+            lastFocusedElement = document.activeElement;
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            openButton.setAttribute('aria-expanded', 'true');
+            closeButton.focus();
+
+            if (window.instgrm) {
+                window.instgrm.Embeds.process();
+            }
+        }
+
+        function closeInstagram() {
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            openButton.setAttribute('aria-expanded', 'false');
+            if (lastFocusedElement) lastFocusedElement.focus();
+        }
+
+        openButton.addEventListener('click', openInstagram);
+        closeButton.addEventListener('click', closeInstagram);
+
+        modal.addEventListener('click', function (event) {
+            if (event.target === modal) closeInstagram();
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeInstagram();
+            }
+        });
+    })();
+</script>
 
 <!-- FAQ INTERACTION -->
 <script>
