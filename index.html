@@ -74,6 +74,35 @@
             --light:#f5f7fb;
         }
 
+        /* Responsive navigation: independent of Tailwind breakpoint utilities. */
+        .site-nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e5e7eb;width:100%;}
+        .site-nav-inner{width:100%;max-width:1280px;margin:0 auto;padding:12px 20px;min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-sizing:border-box;}
+        .site-logo{display:flex;align-items:center;flex:0 1 auto;min-width:0;}
+        .site-logo img{display:block;width:auto;height:48px;max-width:min(65vw,260px);object-fit:contain;}
+        .desktop-navigation{display:flex;align-items:center;justify-content:flex-end;gap:24px;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;}
+        .desktop-navigation a{color:#03152d;text-decoration:none;white-space:nowrap;}
+        .desktop-navigation a:hover{color:#2563eb;}
+        .desktop-navigation .desktop-enquire{background:#2563eb;color:#fff;padding:13px 18px;border-radius:2px;}
+        .desktop-navigation .desktop-enquire:hover{background:#1d4ed8;color:#fff;}
+        .mobile-menu-toggle{display:none;flex:0 0 44px;width:44px;height:44px;align-items:center;justify-content:center;border:1px solid #d1d5db;border-radius:5px;background:#fff;color:#03152d;cursor:pointer;}
+        .mobile-menu-toggle svg[hidden]{display:none;}
+        .mobile-navigation[hidden]{display:none !important;}
+        .mobile-navigation{display:none;background:#fff;border-top:1px solid #e5e7eb;padding:8px 16px 16px;box-sizing:border-box;box-shadow:0 8px 12px rgba(3,21,45,.08);}
+        .mobile-navigation a{display:block;padding:14px 12px;color:#03152d;text-decoration:none;font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;}
+        .mobile-navigation a:hover{background:#f5f7fb;color:#2563eb;}
+        .mobile-navigation .mobile-enquire{margin-top:8px;background:#2563eb;color:#fff;text-align:center;}
+        @media(max-width:767px){
+          .site-nav-inner{min-height:68px;padding:10px 16px;gap:12px;}
+          .site-logo img{height:40px;max-width:calc(100vw - 100px);}
+          .desktop-navigation{display:none !important;}
+          .mobile-menu-toggle{display:inline-flex !important;}
+          .mobile-navigation:not([hidden]){display:block;}
+        }
+        @media(min-width:768px){
+          .mobile-menu-toggle,.mobile-navigation{display:none !important;}
+          .site-nav-inner{min-height:88px;}
+        }
+
         body{
             font-family: Arial, Helvetica, sans-serif;
             background:#fff;
@@ -152,7 +181,9 @@
             display:block;
         }
 
-        .faq-item.is-open
+        .faq-item.is-open {
+            /* FAQ open-state styling is controlled by the existing page script. */
+        }
 
         @media(max-width:768px){
 
@@ -170,27 +201,32 @@
             }
         }
     </style>
-</link></head>
+</head>
 <body class="text-gray-900">
 <!-- NAV -->
-<nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
-<div class="max-w-7xl mx-auto px-5">
-<div class="flex items-center justify-between h-24">
-<img alt="Extra Time" class="h-12 md:h-14 object-contain" src="LogoNameTight.png"/>
-<div class="flex items-center gap-6 text-[11px] uppercase font-black tracking-[0.18em]">
-<a class="hover:text-blue-600 transition" href="#about">
-                    About
-                </a>
-<a class="hover:text-blue-600 transition" href="bingley--football-development.html">Bingley Centre</a><a class="hover:text-blue-600 transition" href="faqs.html">FAQs</a>
-
-<a class="hidden md:inline-flex bg-blue-600 text-white px-5 py-3 text-[10px] rounded-sm tracking-[0.2em] hover:bg-blue-700 transition" href="#enquiry">
-                    ENQUIRE NOW
-                </a>
-</div>
-</div>
-</div>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <a href="index.html" aria-label="Extra Time Coaching home" class="site-logo">
+      <img alt="Extra Time Coaching" src="LogoNameTight.png" />
+    </a>
+    <div class="desktop-navigation" aria-label="Desktop navigation">
+      <a href="#about">About</a>
+      <a href="bingley-girls-football-development.html">Bingley Centre</a>
+      <a href="faqs.html">FAQs</a>
+      <a class="desktop-enquire" href="#enquiry">Enquire Now</a>
+    </div>
+    <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-navigation" aria-expanded="false">
+      <svg id="mobile-menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="mobile-menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" hidden><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div id="mobile-navigation" class="mobile-navigation" aria-label="Mobile navigation" hidden>
+    <a href="#about">About</a>
+    <a href="bingley-girls-football-development.html">Bingley Centre</a>
+    <a href="faqs.html">FAQs</a>
+    <a class="mobile-enquire" href="#enquiry">Enquire Now</a>
+  </div>
 </nav>
-
 <!-- HERO -->
 <header class="hero-bg min-h-[760px] flex items-center relative overflow-hidden">
 <div class="max-w-7xl mx-auto px-5 w-full py-20">
@@ -198,8 +234,8 @@
 <p class="uppercase tracking-[0.35em] text-blue-300 text-xs font-black mb-6">
                 FA AFFILIATED DEVELOPMENT CENTRE
             </p>
-<h1 class="text-white uppercase italic font-black leading-none tracking-tighter text-5xl md:text-7xl mb-8"> FOOTBALL<br/><span class="text-blue-400">DEVELOPMENT IN BINGLEY</span><br/> &amp; KEIGHLEY</h1>
-<p class="text-gray-300 text-lg md:text-2xl leading-relaxed max-w-xl mb-12 font-medium">Small group football coaching for U12–U15 , helping grassroots players develop their technical skills, confidence and game understanding. Weekly sessions at Beckfoot School in Bingley, with 1-to-1 coaching and additional development sessions also available.</p>
+<h1 class="text-white uppercase italic font-black leading-none tracking-tighter text-5xl md:text-7xl mb-8">GIRLS FOOTBALL<br/><span class="text-blue-400">DEVELOPMENT IN BINGLEY</span><br/> &amp; KEIGHLEY</h1>
+<p class="text-gray-300 text-lg md:text-2xl leading-relaxed max-w-xl mb-12 font-medium">Small group football coaching for U12–U15 girls, helping grassroots players develop their technical skills, confidence and game understanding. Weekly sessions at Beckfoot School in Bingley, with 1-to-1 coaching and additional development sessions also available.</p>
 <div class="flex flex-col sm:flex-row gap-4">
 <a class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-5 uppercase text-xs tracking-[0.25em] font-black rounded-sm flex items-center justify-center gap-3 transition" href="https://spond.com/invite/GVVXG" target="_blank">
 <img alt="Spond" class="w-5 h-5" src="Spond.png"/>
@@ -243,7 +279,7 @@
                 Football Without Barriers
             </h3>
 <p class="text-gray-300 leading-relaxed">
-                Additional football training supporting players across the grassroots game, with current sessions focused on U12–U15 .
+                Additional football training supporting players across the grassroots game, with current sessions focused on U12–U15 girls.
             </p>
 </div>
 <div class="glass-card feature-card p-8 text-center text-white rounded-sm">
