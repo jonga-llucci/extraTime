@@ -97,7 +97,7 @@
    "name": "Girls Football Coaching in Bingley | Extra Time Coaching",
    "description": "1 star England Football accredited girls football coaching in Bingley. Small groups for U13–U15 players, Tuesdays at Beckfoot School, plus 1-to-1 sessions.",
    "inLanguage": "en-GB",
-   "dateModified": "2026-10-10",
+   "dateModified": "2026-11-09",
    "isPartOf": {
     "@id": "https://extratimecoaching.com/#website"
    },
@@ -346,13 +346,40 @@ Join Spond Group
 <input id="email" class="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" data-fs-field="" name="email" placeholder="email@example.com" required="" type="email" autocomplete="email">
 </div>
 </div>
+<div class="grid md:grid-cols-2 gap-6">
 <div>
-<label for="player_info" class="block text-xs font-black uppercase tracking-[0.2em] mb-2 text-gray-500">Player Age &amp; Current Club</label>
-<input id="player_info" class="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" data-fs-field="" name="player_info" placeholder="e.g. U14 - Westside FC" required="" type="text">
+<label for="player_age" class="block text-xs font-black uppercase tracking-[0.2em] mb-2 text-gray-500">Player Age</label>
+<input id="player_age" class="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" data-fs-field="" name="player_age" placeholder="e.g. 14" required="" type="number" inputmode="numeric" min="4" max="18" step="1" autocomplete="off">
 </div>
 <div>
-<label for="message" class="block text-xs font-black uppercase tracking-[0.2em] mb-2 text-gray-500">Development Goals</label>
-<textarea id="message" class="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" data-fs-field="" name="message" placeholder="What areas of football do you want to improve?" required="" rows="5"></textarea>
+<label for="player_gender" class="block text-xs font-black uppercase tracking-[0.2em] mb-2 text-gray-500">Player Gender</label>
+<select id="player_gender" class="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" data-fs-field="" name="player_gender" required="" style="height:3.625rem">
+<option value="" selected disabled>Select…</option>
+<option value="Female">Female</option>
+<option value="Male">Male</option>
+</select>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label for="player_club" class="block text-xs font-black uppercase tracking-[0.2em] mb-2 text-gray-500">Current Club</label>
+<input id="player_club" class="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" data-fs-field="" name="player_club" placeholder="Club name (or none)" required="" type="text" autocomplete="off">
+</div>
+<div>
+<label for="enquiry_type" class="block text-xs font-black uppercase tracking-[0.2em] mb-2 text-gray-500">Enquiry Type</label>
+<select id="enquiry_type" class="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" data-fs-field="" name="enquiry_type" required="" style="height:3.625rem">
+<option value="" selected disabled>Select…</option>
+<option value="1-to-1 session">1-to-1 session</option>
+<option value="Girls U13–U15 Small Group Session">Girls U13–U15 Small Group Session</option>
+<option value="Girls U13–U15 Holiday Camp">Girls U13–U15 Holiday Camp</option>
+<option value="Availability or pricing">Availability or pricing</option>
+<option value="Other">Other</option>
+</select>
+</div>
+</div>
+<div>
+<label for="message" class="block text-xs font-black uppercase tracking-[0.2em] mb-2 text-gray-500">Enquiry</label>
+<textarea id="message" class="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" data-fs-field="" name="message" placeholder="What is your enquiry? Please include as much detail as possible about the player, what type of training you are enquiring about, their ability, playing position and goals – what they would like to improve." required="" rows="7"></textarea>
 </div>
 <button class="bg-black hover:bg-blue-700 text-white uppercase tracking-[0.3em] font-black py-5 px-10 transition" data-fs-submit-btn="" type="submit">Submit Enquiry</button>
 <p class="text-sm text-gray-500 leading-relaxed">We use these details only to reply to your enquiry. See our <a class="text-blue-600 font-bold hover:underline" href="privacy.html">privacy &amp; cookies notice</a>.</p>
